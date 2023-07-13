@@ -23,4 +23,10 @@ def login(request):
     return render(request, 'pejuma_app/login.html')
 
 def terms_and_conditions(request):
-    return render(request, 'pejuma_app/Terms&conditions')
+    return render(request, 'pejuma_app/Terms&conditions.html')
+
+def catergoriesList(request):
+    return render(request, 'pejuma_app/categoriesList.html')
+
+def dashboard(request):
+    return render(request, 'pejuma_app/dashboard.html')

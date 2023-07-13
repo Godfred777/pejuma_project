@@ -28,7 +28,7 @@
   background-color: white;
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 500px;
   flex: 1;
   margin-top: 55px;
 }
@@ -38,14 +38,15 @@
   width: 50%;
   position: relative;
   background-image: url(image/marketing.jpg);
-  background-size: 130% 75%;
+  background-size: 130% 90%;
   background-repeat: no-repeat;
   background-color: white;
-  height: 600px;
+  height: 500px;
   padding: 30px;
   border-radius: 10px;
   flex: 1;
   margin-top: 55px;
+ 
 }
 
 h1 {
@@ -63,7 +64,6 @@ p {
   margin-top: 10px;
 }
 
-
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -73,6 +73,10 @@ input[type="password"] {
   border-radius: 10px;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="checkbox"]{
+  margin-top: 20px;
 }
 
 input[type="submit"] {
@@ -97,15 +101,10 @@ input[type="submit"] {
 }
 
 .eye-button {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
-}
-
-.eye-button {
   padding-right: 1px;
   width: 100%;
+  cursor: pointer;
+  position: relative;
 }
 
 .eye-button .eye-icon {
@@ -113,8 +112,13 @@ input[type="submit"] {
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  font-size: 18px;
-  color: #999;
+}
+.eye-button .icon {
+  position: absolute;
+  top: 5px;
+  right: 1px;
+  transform: translateY(-90%);
+  width: 20px;
 }
 
 .logo {
@@ -155,6 +159,7 @@ input[type="submit"] {
   width: 40%;
   float: left;
   margin-top: 0%;
+  margin-bottom: 10%;
 }
 
 footer {
@@ -180,7 +185,7 @@ footer ul li {
 footer ul li a {
   color: #041563;
   text-decoration: none;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .clearfix::after {
@@ -195,9 +200,6 @@ footer ul li a {
       text-decoration: none;
       margin-top: .5px;
     }
-    input[type="checkbox"]{
-        margin-top: 20px;
-    }
 
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -206,11 +208,11 @@ footer ul li a {
       var input = icon.previousElementSibling;
       if (input.type === "password") {
         input.type = "text";
-        icon.innerHTML = "👁️";
+        icon.innerHTML = '<img src="image/eyeslash.png" style="width: 20px;">';
       } 
       else {
         input.type = "password";
-        icon.innerHTML = "👁";
+        icon.innerHTML = '<img src="image/eye.png" style="width: 20px;">';
       }
     }
   </script>
@@ -231,10 +233,11 @@ footer ul li a {
         <form action="signup.php" method="POST">
             <input type="email" placeholder="Email or phone number" required>
 
-            
             <div class="eye-button">
-              <input type="password" placeholder="Password" required>
-              <span class="eye-icon" onclick="togglePasswordVisibility(this)">👁</span>
+              <input type="password" placeholder="Password" id="icon" required>
+              <span class="eye-icon" onclick="togglePasswordVisibility(this)">
+                <img class="icon" src="image/eye.png" alt="Show Password">
+              </span>
             </div>
 
             <input type="checkbox" id="terms" name="terms">

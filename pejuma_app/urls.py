@@ -7,7 +7,6 @@ urlpatterns = [
     path('signup', views.signup, name='pejuma_app-signup'),
     path('signin', views.signin, name='pejuma_app-signin'),
     path('register', views.register, name='pejuma_app-register'),
-    path('login', views.login, name='pejuma_app-login'),
     path('contact', views.contact_us, name='pejuma_app-contactUs'),
     path('t&c', views.terms_and_conditions, name='pejuma_app-Terms&Conditions'),
     path('catergoriesList', views.catergoriesList, name='pejuam_app-catergoriesList'),

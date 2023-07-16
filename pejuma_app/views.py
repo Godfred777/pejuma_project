@@ -19,9 +19,6 @@ def contact_us(request):
 def register(request):
     return render(request, 'pejuma_app/register.html')
 
-def login(request):
-    return render(request, 'pejuma_app/login.html')
-
 def terms_and_conditions(request):
     return render(request, 'pejuma_app/Terms&conditions.html')
 

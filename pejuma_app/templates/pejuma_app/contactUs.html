@@ -269,10 +269,9 @@
           </div>
           <div class="contact-form">
             <p><strong>Thanks for contacting us!</strong></p>
-            <form action="contactus.php" method="POST">
-              <input type="text" placeholder="Full name">
-              <input type="email" placeholder="Email " required>
-              <input type="message" placeholder="Your Message" required>              
+            <form method="post">
+              {% csrf_token %}
+              {{ form }}             
               <input type="submit" value="SEND">
             </form>
   </main>

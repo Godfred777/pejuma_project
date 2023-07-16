@@ -227,13 +227,14 @@ footer ul li a {
         <h1>Let's sign you up!</h1>
       <p><strong>Get Registered with Us</strong></p>
         <form method="POST">
-            <input type="text" placeholder="Full name" required>
-            <input type="email" placeholder="Email or phone number" required>
+          {% csrf_token %}
+            <input type="text" name="username" placeholder="Full name" required>
+            <input type="email" name="email" placeholder="Email or phone number" required>
 
             
             <div class="eye-button">
-              <input type="password" placeholder="Password" id="icon" required>
-              <span class="eye-icon" onclick="togglePasswordVisibility(this)">
+              <input type="password" name="password" placeholder="Password" id="icon" required>
+              <span class="eye-icon" name="confirm-password" onclick="togglePasswordVisibility(this)">
                 <img class="icon" src="image/eye.png">
               </span>
             </div>

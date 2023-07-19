@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpResponse
 from .forms import ContactUsForm
 from django.views.decorators.csrf import csrf_exempt
 

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import ContactUsForm
+from .forms import ContactUsForm, SignUpForm, LogInForm
+from .models import Customer
+from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -10,11 +12,32 @@ def home(request):
 def about(request):
     return render(request, 'pejuma_app/about.html')
 
+@csrf_exempt
 def signup(request):
-    return render(request, 'pejuma_app/signup.html')
+    try:
+        if request.method == "POST":
+            signup_form = SignUpForm(request.POST)
+            if signup_form.is_valid():
+                return HttpResponse('Success...')
+        else:
+            signup_form = SignUpForm()
+            return render(request, 'pejuma_app/signup.html', {"form":signup_form})
+    except:
+        return HttpResponse('Something went wrong...')
 
+@csrf_exempt
 def signin(request):
-    return render(request, 'pejuma_app/signin.html')
+    try:
+        if request.method == "POST":
+            signin_form = LogInForm(request.POST)
+            if signin_form.is_valid():
+                return HttpResponse("<h1>Success...</h1>")
+        else:
+            signin_form = LogInForm()
+            return render(request, 'pejuma_app/signin.html', {"form":signin_form})
+    except:
+        return HttpResponse("<h1>Something went wrong")
+
 
 @csrf_exempt
 def contact_us(request):

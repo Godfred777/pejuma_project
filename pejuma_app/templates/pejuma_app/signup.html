@@ -226,21 +226,38 @@ footer ul li a {
       <div class="left-section">
         <h1>Let's sign you up!</h1>
       <p><strong>Get Registered with Us</strong></p>
+        {{ form.non_field_errors }}
         <form method="POST">
           {% csrf_token %}
-            <input type="text" name="username" placeholder="Full name" required>
-            <input type="email" name="email" placeholder="Email or phone number" required>
+            <div class="FieldWrapper">
+              {{ form.username.errors }}
+              {{ form.username.label_tag }}
+              {{ form.username }}
+            </div>
 
-            
+           <div class="FieldWrapper">
+              {{ form.email.errors }}
+              {{ form.email.label_tag }}
+              {{ form.email }}
+            </div>
+
             <div class="eye-button">
-              <input type="password" name="password" placeholder="Password" id="icon" required>
+              <div class="FieldWrapper">
+                {{ form.password1.errors }}
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+              </div>
               <span class="eye-icon" name="confirm-password" onclick="togglePasswordVisibility(this)">
                 <img class="icon" src="image/eye.png">
               </span>
             </div>
     
             <div class="eye-button">
-             <input type="password" placeholder="Confirm Password" required>
+              <div class="FieldWrapper">
+                {{ form.password2.errors }}
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+              </div>
              <span class="eye-icon" onclick="togglePasswordVisibility(this)">
               <img class="icon" src="image/eye.png">
             </div>

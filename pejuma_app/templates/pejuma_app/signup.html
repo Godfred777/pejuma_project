@@ -226,9 +226,9 @@ footer ul li a {
       <div class="left-section">
         <h1>Let's sign you up!</h1>
       <p><strong>Get Registered with Us</strong></p>
-        {{ form.non_field_errors }}
         <form method="POST">
           {% csrf_token %}
+          {{ form.non_field_errors }}
             <div class="FieldWrapper">
               {{ form.username.errors }}
               {{ form.username.label_tag }}

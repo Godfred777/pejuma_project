@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from pejuama_auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pejuma_app.urls')),
+    path('auth/signup/', auth_views.signup, name='pejuama_auth-signup'),
+    path('auth/signin/', auth_views.signin, name='pejuama_auth-signin'),
+    path('auth_logout/', auth_views.signout, name='logout'),
 ]

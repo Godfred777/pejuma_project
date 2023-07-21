@@ -230,11 +230,21 @@ footer ul li a {
       <div class="left-section">
         <h1>Let's sign you in!</h1>
         <p><strong>Good to see you again!</strong></p>
-        <form action="signup.php" method="POST">
-            <input type="email" placeholder="Email or phone number" required>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="FieldWrapper">
+            {{ form.email.errors }}
+            {{ form.email.label_tag }}
+            {{ form.email }}
+          </div>
 
             <div class="eye-button">
-              <input type="password" placeholder="Password" id="icon" required>
+              <div class="FieldWrapper">
+                {{ form.password.errors }}
+                {{ form.password.label_tag }}
+                {{ form.password }}
+              </div>
               <span class="eye-icon" onclick="togglePasswordVisibility(this)">
                 <img class="icon" src="image/eye.png" alt="Show Password">
               </span>

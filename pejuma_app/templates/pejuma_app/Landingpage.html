@@ -1,4 +1,5 @@
 {% load static %}
+{% load url%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -304,12 +305,12 @@
             <li><a href="contactUs.html">Contact Us</a></li>
           </div>
           <ul class="nav-menu">
-           <li><a href="signin.html">Login</a></li>
+           <li><a href="{% url 'signin' %}">Login</a></li>
            <li class="dropdown">
             <a href="#" class="dropbtn">Register</a>
             <div class="dropdown-content">
               <a href="signup.html">Artisan</a>
-              <a href="signup.html">Customer</a>
+              <a href="{% url 'auth_view/signup' %}">Customer</a>
             </div>
           </li>
         </ul>
@@ -351,19 +352,19 @@
         <h2>Popular Categories</h2>
         <div class="category-grid">
           <div class="category-item">
-            <img src="{static 'pejuma_app/health.jpg'}" alt="Health">
+            <img src="{% static 'pejuma_app/health.jpg' %}" alt="Health">
             <h3>Health Care</h3>
           </div>
           <div class="category-item">
-            <img src="{static 'pejuma_app/p.jpg'}" alt="Constructon">
+            <img src="{% static 'pejuma_app/p.jpg' %}" alt="Constructon">
             <h3>Constructon</h3>
           </div>
           <div class="category-item">
-            <img src="{static 'pejuma_app/mechanic.jpg'}" alt="Mechanics">
+            <img src="{% static 'pejuma_app/mechanic.jpg' %}" alt="Mechanics">
             <h3>Automobile - Mechanics</h3>
           </div>
           <div class="category-item">
-              <img src="{static 'pejuma_app/marketing.jpg'}" alt="Marketing">
+              <img src="{% static 'pejuma_app/marketing.jpg' %}" alt="Marketing">
               <h3>Marketing</h3>
            </div>
       </div>
